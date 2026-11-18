@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM FITNESS CLUB | البورتفوليو الرسمي</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Cairo Arabic Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- QRCode.js for Live Scannable QR Preview -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #09090b;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(24, 24, 27, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(250, 204, 21, 0.16);
+        }
+        .gold-glow {
+            box-shadow: 0 0 28px rgba(250, 204, 21, 0.18);
+        }
+        .zigzag-bg {
+            background-image: radial-gradient(circle at 20% 20%, rgba(250, 204, 21, 0.12) 0%, transparent 45%),
+                              radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.09) 0%, transparent 45%);
+        }
+        @media print {
+            body * { visibility: hidden; }
+            #qrPrintCard, #qrPrintCard * { visibility: visible; }
+            #qrPrintCard {
+                position: fixed;
+                inset: 0;
+                margin: auto;
+                width: 380px;
+                height: fit-content;
+                background: #09090b !important;
+                color: #fff !important;
+                border: 3px solid #facc15 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body class="zigzag-bg min-h-screen pb-20 md:pb-0">
+
+    <!-- ==================== 1. STICKY RTL NAVBAR ==================== -->
+    <header class="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur-xl border-b border-yellow-400/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-3">
+            <!-- Brand Logo -->
+            <a href="#top" class="flex items-center gap-3 group shrink-0">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-yellow-300 via-yellow-400 to-amber-500 flex items-center justify-center text-zinc-950 shadow-lg shadow-yellow-400/25 group-hover:scale-105 transition">
+                    <i class="fa-solid fa-dumbbell text-lg -rotate-45"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-1.5">
+                        <span class="font-black text-lg sm:text-xl tracking-wide text-white" dir="ltr">GYM <span class="text-yellow-400">FITNESS CLUB</span></span>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-slate-400 hidden sm:block">تحت إدارة ك/ إبراهيم محي السيد • مقابل بنك الإسكندرية - خلف مدرسة الحامول الجديدة</p>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-1 bg-zinc-900/90 p-1.5 rounded-2xl border border-white/10">
+                <a href="#gallery" class="px-4 py-2 rounded-xl text-sm font-extrabold text-slate-200 hover:text-zinc-950 hover:bg-yellow-400 transition">عن الجيم والصور</a>
+                <a href="#memberships" class="px-4 py-2 rounded-xl text-sm font-extrabold text-slate-200 hover:text-zinc-950 hover:bg-yellow-400 transition">باقات الاشتراكات</a>
+                <a href="#trainers" class="px-4 py-2 rounded-xl text-sm font-extrabold text-slate-200 hover:text-zinc-950 hover:bg-yellow-400 transition">المدربين البرايفت PT</a>
+                <a href="#calories" class="px-4 py-2 rounded-xl text-sm font-extrabold text-slate-200 hover:text-zinc-950 hover:bg-yellow-400 transition">حاسبة السعرات</a>
+            </nav>
+
+            <!-- QR Preview Modal Trigger -->
+            <div class="flex items-center gap-2">
+                <button type="button" onclick="openQrModal()" class="px-3.5 sm:px-4 py-2.5 rounded-2xl bg-yellow-400 hover:bg-yellow-300 text-zinc-950 text-xs sm:text-sm font-black shadow-lg shadow-yellow-400/20 transition flex items-center gap-2">
+                    <i class="fa-solid fa-qrcode text-base"></i>
+                    <span>معاينة QR Code</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="top" class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10 space-y-16 sm:space-y-24">
+
+        <!-- ==================== 2. HERO SECTION & 3 WORKING SHIFTS ==================== -->
+        <section class="relative rounded-3xl overflow-hidden border border-yellow-400/30 bg-zinc-950 gold-glow">
+            <!-- Hero Background Visual -->
+            <div class="absolute inset-0">
+                <img id="heroBgImage" src="WhatsApp Image 2026-11-18 at 22.45.19 (1).jpeg" alt="GYM FITNESS CLUB" class="w-full h-full object-cover opacity-30" onerror="this.style.display='none'">
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/85 to-zinc-950/60"></div>
+            </div>
+
+            <div class="relative p-6 sm:p-10 lg:p-12 space-y-8">
+                <!-- Live Status & Management Badges -->
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div id="liveShiftStatusBadge" class="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-xs sm:text-sm font-black">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        <span id="liveShiftStatusText">جاري التحقق من الفترة الحالية...</span>
+                    </div>
+
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-yellow-400/15 border border-yellow-400/40 text-yellow-300 text-xs sm:text-sm font-black">
+                        <i class="fa-solid fa-crown text-yellow-400"></i>
+                        <span>تحت إدارة ك/ إبراهيم محي السيد</span>
+                    </div>
+                </div>
+
+                <!-- Main Title & Address & Phone -->
+                <div class="max-w-4xl space-y-4">
+                    <div class="flex flex-wrap items-center gap-2.5">
+                        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-yellow-400/15 border border-yellow-400/35 text-yellow-300 text-xs sm:text-sm font-extrabold">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>مقابل بنك الإسكندرية - خلف مدرسة الحامول الجديدة</span>
+                        </span>
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-emerald-300 text-xs sm:text-sm font-extrabold">
+                            <a href="tel:01019257887" class="inline-flex items-center gap-1.5 hover:text-white transition" dir="ltr">
+                                <i class="fa-solid fa-phone-volume text-emerald-400"></i>
+                                <span>01019257887</span>
+                            </a>
+                            <span class="text-emerald-500/40">|</span>
+                            <button type="button" onclick="copyManagementPhone(this)" class="text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/25 hover:bg-emerald-400 hover:text-zinc-950 text-emerald-200 font-black transition">
+                                نسخ الرقم
+                            </button>
+                        </div>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight text-white">
+                        اصنع نسختك الأقوى داخل <span class="text-yellow-400" dir="ltr">GYM FITNESS CLUB</span>
+                    </h1>
+                    <p class="text-slate-300 text-sm sm:text-lg leading-relaxed max-w-3xl">
+                        صالة متكاملة بأحدث أجهزة الحديد والكارديو والمشايات الكهربائية، مع إشراف تدريبي احترافي وفترات مخصصة للرجال وفترة نسائية مستقلة بالكامل لخصوصية تامة.
+                    </p>
+
+                    <!-- Quick Action Links -->
+                    <div class="flex flex-wrap items-center gap-3 pt-2">
+                        <a href="#memberships" class="px-6 py-3.5 rounded-2xl bg-yellow-400 hover:bg-yellow-300 text-zinc-950 text-sm font-black shadow-lg shadow-yellow-400/20 transition flex items-center gap-2">
+                            <i class="fa-solid fa-tags"></i>
+                            <span>استعراض باقات الاشتراكات</span>
+                        </a>
+                        <a href="#gallery" class="px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 text-white text-sm font-extrabold transition flex items-center gap-2">
+                            <i class="fa-solid fa-images text-yellow-400"></i>
+                            <span>جولة مصورة داخل الجيم</span>
+                        </a>
+                        <a href="https://wa.me/201019257887" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-2xl bg-emerald-500/20 hover:bg-emerald-500 hover:text-zinc-950 border border-emerald-500/40 text-emerald-300 text-sm font-extrabold transition flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            <span>واتساب الإدارة</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3 WORKING SHIFTS SECTION -->
+                <div id="working-hours" class="scroll-mt-28 space-y-4 pt-4 border-t border-white/10">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <h2 class="text-base sm:text-lg font-black text-yellow-400 flex items-center gap-2">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>مواعيد العمل الرسمية على مدار اليوم (3 فترات يومياً)</span>
+                        </h2>
+                        <span class="text-xs text-slate-300 font-bold">العنوان: مقابل بنك الإسكندرية - خلف مدرسة الحامول الجديدة</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Shift 1: Morning Men -->
+                        <div class="p-5 rounded-2xl bg-zinc-900/90 border border-emerald-500/30 space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-xl bg-emerald-500/15 text-emerald-400 text-xs font-black">الفترة الصباحية (رجال)</span>
+                                <i class="fa-solid fa-sun text-emerald-400 text-lg"></i>
+                            </div>
+                            <div class="text-xl sm:text-2xl font-black text-white pt-1">9:00 ص — 11:00 ص</div>
+                            <p class="text-xs text-slate-400">بداية يومك بنشاط مع صالة حديد وكارديو جاهزة بالكامل.</p>
+                        </div>
+
+                        <!-- Shift 2: Ladies Only -->
+                        <div class="p-5 rounded-2xl bg-gradient-to-br from-rose-500/15 to-zinc-900/95 border-2 border-rose-500/50 space-y-2 shadow-lg shadow-rose-500/10">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-xl bg-rose-500 text-white text-xs font-black">الفترة النسائية (سيدات فقط)</span>
+                                <i class="fa-solid fa-person-dress text-rose-400 text-lg"></i>
+                            </div>
+                            <div class="text-xl sm:text-2xl font-black text-white pt-1">11:00 ص — 4:00 م</div>
+                            <p class="text-xs text-rose-200 font-semibold">خصوصية تامة 100% للسيدات فقط طوال 5 ساعات متواصلة يومياً.</p>
+                        </div>
+
+                        <!-- Shift 3: Evening Men -->
+                        <div class="p-5 rounded-2xl bg-zinc-900/90 border border-yellow-400/35 space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-xl bg-yellow-400/15 text-yellow-400 text-xs font-black">الفترة المسائية (رجال)</span>
+                                <i class="fa-solid fa-moon text-yellow-400 text-lg"></i>
+                            </div>
+                            <div class="text-xl sm:text-2xl font-black text-white pt-1">4:00 م — 12:00 ص</div>
+                            <p class="text-xs text-slate-400">8 ساعات متواصلة من التمرين المسائي وإشراف الكباتن.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 3. PHOTO GALLERY SECTION ==================== -->
+        <section id="gallery" class="scroll-mt-24 space-y-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div class="space-y-2">
+                    <span class="px-3.5 py-1 rounded-full bg-yellow-400/15 border border-yellow-400/35 text-yellow-400 text-xs font-extrabold inline-flex items-center gap-1.5">
+                        <i class="fa-solid fa-camera-retro"></i>
+                        <span>جولة داخل صالة GYM FITNESS CLUB</span>
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-white">صور المكان والأجهزة</h2>
+                    <p class="text-slate-400 text-sm sm:text-base">اضغط على أي صورة لتكبيرها ومشاهدة تفاصيل كل قسم داخل الجيم.</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2">
+                    <button type="button" onclick="filterGallery('all', this)" class="gallery-filter-btn px-4 py-2 rounded-xl bg-yellow-400 text-zinc-950 text-xs sm:text-sm font-black transition">الكل (9)</button>
+                    <button type="button" onclick="filterGallery('weights', this)" class="gallery-filter-btn px-4 py-2 rounded-xl bg-zinc-900 border border-white/10 text-slate-300 hover:border-yellow-400/40 text-xs sm:text-sm font-bold transition">صالة الحديد والأوزان (6)</button>
+                    <button type="button" onclick="filterGallery('cardio', this)" class="gallery-filter-btn px-4 py-2 rounded-xl bg-zinc-900 border border-white/10 text-slate-300 hover:border-yellow-400/40 text-xs sm:text-sm font-bold transition">الكارديو والمشايات (2)</button>
+                    <button type="button" onclick="filterGallery('supplements', this)" class="gallery-filter-btn px-4 py-2 rounded-xl bg-zinc-900 border border-white/10 text-slate-300 hover:border-yellow-400/40 text-xs sm:text-sm font-bold transition">ركن المكملات (1)</button>
+                </div>
+            </div>
+
+            <!-- 9 Gallery Cards Grid -->
+            <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Populated via JavaScript -->
+            </div>
+        </section>
+
+        <!-- ==================== 4. MEMBERSHIPS & OFFERS SECTION ==================== -->
+        <section id="memberships" class="scroll-mt-24 space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="px-3.5 py-1 rounded-full bg-yellow-400/15 border border-yellow-400/35 text-yellow-400 text-xs font-extrabold inline-flex items-center gap-1.5">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>باقات الاشتراكات والعروض الحصرية</span>
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-black text-white">أسعار الاشتراكات في GYM FITNESS CLUB</h2>
+                <p class="text-slate-400 text-sm sm:text-base">اختر نوع الباقة المناسبة لك سواء تمرين حديد وأجهزة فقط أو شامل استخدام المشايات والكارديو.</p>
+
+                <!-- Plan Type Toggle -->
+                <div class="inline-flex items-center p-1.5 rounded-2xl bg-zinc-900 border border-yellow-400/30 mt-2">
+                    <button type="button" id="btnGymOnly" onclick="setPlanType('gymOnly')" class="px-5 py-2.5 rounded-xl bg-yellow-400 text-zinc-950 text-xs sm:text-sm font-black transition">
+                        <i class="fa-solid fa-dumbbell ml-1.5"></i>جيم فقط
+                    </button>
+                    <button type="button" id="btnGymTreadmill" onclick="setPlanType('gymTreadmill')" class="px-5 py-2.5 rounded-xl text-slate-300 hover:text-white text-xs sm:text-sm font-extrabold transition">
+                        <i class="fa-solid fa-person-running ml-1.5"></i>جيم ومشاية
+                    </button>
+                </div>
+            </div>
+
+            <!-- 4 Membership Cards -->
+            <div id="membershipsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Populated via JavaScript -->
+            </div>
+
+            <!-- Full Comparison Table -->
+            <div class="glass-card rounded-3xl overflow-hidden border border-yellow-400/25">
+                <div class="p-5 sm:p-6 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <h3 class="text-lg sm:text-xl font-black text-white flex items-center gap-2">
+                        <i class="fa-solid fa-table-list text-yellow-400"></i>
+                        <span>جدول مقارنة جميع الاشتراكات والعروض</span>
+                    </h3>
+                    <span class="text-xs font-bold text-yellow-400">الأسعار بالجنيه المصري • التفعيل من الريسبشن</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="bg-zinc-950/90 text-xs sm:text-sm text-yellow-400 border-b border-white/10">
+                                <th class="p-4 font-black">مدة الاشتراك</th>
+                                <th class="p-4 font-black">باقة جيم فقط</th>
+                                <th class="p-4 font-black">باقة جيم ومشاية</th>
+                                <th class="p-4 font-black">قيمة التوفير</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/10 text-xs sm:text-sm">
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="p-4 font-black text-white">اشتراك شهر واحد</td>
+                                <td class="p-4 font-black text-emerald-400 text-base">400 ج.م</td>
+                                <td class="p-4 font-black text-yellow-400 text-base">500 ج.م</td>
+                                <td class="p-4 text-slate-400">سعر الباقة الشهرية</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="p-4 font-black text-white">عرض 3 شهور</td>
+                                <td class="p-4">
+                                    <span class="font-black text-emerald-400 text-base">1,000 ج.م</span>
+                                    <span class="text-slate-400 line-through mr-1.5">بدلاً من 1,200</span>
+                                </td>
+                                <td class="p-4">
+                                    <span class="font-black text-yellow-400 text-base">1,200 ج.م</span>
+                                    <span class="text-slate-400 line-through mr-1.5">بدلاً من 1,500</span>
+                                </td>
+                                <td class="p-4"><span class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 font-bold">وفر 200 - 300 ج.م</span></td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition bg-yellow-400/5">
+                                <td class="p-4 font-black text-white">عرض 6 شهور <span class="px-2 py-0.5 rounded bg-yellow-400 text-zinc-950 text-[10px] font-black mr-1">الأكثر طلباً</span></td>
+                                <td class="p-4">
+                                    <span class="font-black text-emerald-400 text-base">1,800 ج.م</span>
+                                    <span class="text-slate-400 line-through mr-1.5">بدلاً من 2,400</span>
+                                </td>
+                                <td class="p-4">
+                                    <span class="font-black text-yellow-400 text-base">2,200 ج.م</span>
+                                    <span class="text-slate-400 line-through mr-1.5">بدلاً من 3,000</span>
+                                </td>
+                                <td class="p-4"><span class="px-2.5 py-1 rounded-lg bg-yellow-400/20 text-yellow-300 font-bold">وفر 600 - 800 ج.م</span></td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="p-4 font-black text-white">عرض السنة (12 شهر)</td>
+                                <td class="p-4">
+                                    <span class="font-black text-emerald-400 text-base">3,400 ج.م</span>
+                                    <span class="text-slate-400 line-through mr-1.5">بدلاً من 4,800</span>
+                                </td>
+                                <td class="p-4">
+                                    <span class="font-black text-yellow-400 text-base">4,000 ج.م</span>
+                                    <span class="text-slate-400 line-through mr-1.5">بدلاً من 6,000</span>
+                                </td>
+                                <td class="p-4"><span class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 font-bold">وفر 1,400 - 2,000 ج.م</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 5. PRIVATE TRAINERS (PT) SECTION (2 TRAINERS ONLY) ==================== -->
+        <section id="trainers" class="scroll-mt-24 space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2.5">
+                <span class="px-3.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-emerald-400 text-xs font-extrabold inline-flex items-center gap-1.5">
+                    <i class="fa-solid fa-award"></i>
+                    <span>التدريب الشخصي والمتابعة الغذائية المتكاملة</span>
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-black text-white">المدربين البرايفت (PT)</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    اختر مدربك الشخصي لتحقيق أقصى استفادة من تمرينك مع متابعة غذائية شاملة وتصميم برامج تدريبية مخصصة لهدفك.
+                </p>
+            </div>
+
+            <!-- 2 Personal Trainer Cards Grid -->
+            <div id="trainersGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                <!-- Populated via JavaScript -->
+            </div>
+        </section>
+
+        <!-- ==================== 6. CALORIE & MACRO CALCULATOR SECTION ==================== -->
+        <section id="calories" class="scroll-mt-24 space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2.5">
+                <span class="px-3.5 py-1 rounded-full bg-yellow-400/15 border border-yellow-400/35 text-yellow-400 text-xs font-extrabold inline-flex items-center gap-1.5">
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+                    <span>أداة مجانية لأعضاء وزوار الجيم</span>
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-black text-white">حاسبة السعرات الحرارية والماكروز</h2>
+                <p class="text-slate-400 text-sm sm:text-base">احسب احتياجك اليومي الدقيق من السعرات والبروتين والكارب والدهون والماء حسب هدفك.</p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 sm:p-8 border border-yellow-400/25 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Inputs Form -->
+                <div class="lg:col-span-7 space-y-5">
+                    <!-- Gender -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <button type="button" id="genderMaleBtn" onclick="setCalcGender('male')" class="py-3 px-4 rounded-2xl bg-yellow-400 text-zinc-950 font-black text-sm flex items-center justify-center gap-2 transition">
+                            <i class="fa-solid fa-mars"></i><span>ذكر</span>
+                        </button>
+                        <button type="button" id="genderFemaleBtn" onclick="setCalcGender('female')" class="py-3 px-4 rounded-2xl bg-zinc-900 border border-white/10 text-slate-300 font-bold text-sm flex items-center justify-center gap-2 transition">
+                            <i class="fa-solid fa-venus"></i><span>أنثى</span>
+                        </button>
+                    </div>
+
+                    <!-- Age, Weight, Height -->
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="space-y-1.5">
+                            <label class="text-xs font-bold text-slate-300 block">العمر (سنة)</label>
+                            <input type="number" id="calcAge" value="25" min="12" max="80" oninput="calculateMacros()" class="w-full p-3 rounded-xl bg-zinc-950 border border-white/15 text-white font-black text-center focus:border-yellow-400 focus:outline-none">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-xs font-bold text-slate-300 block">الوزن (كجم)</label>
+                            <input type="number" id="calcWeight" value="78" min="35" max="220" oninput="calculateMacros()" class="w-full p-3 rounded-xl bg-zinc-950 border border-white/15 text-white font-black text-center focus:border-yellow-400 focus:outline-none">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-xs font-bold text-slate-300 block">الطول (سم)</label>
+                            <input type="number" id="calcHeight" value="176" min="120" max="220" oninput="calculateMacros()" class="w-full p-3 rounded-xl bg-zinc-950 border border-white/15 text-white font-black text-center focus:border-yellow-400 focus:outline-none">
+                        </div>
+                    </div>
+
+                    <!-- Activity Level -->
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-bold text-slate-300 block">معدل النشاط والتمرين الأسبوعي</label>
+                        <select id="calcActivity" onchange="calculateMacros()" class="w-full p-3.5 rounded-xl bg-zinc-950 border border-white/15 text-white font-bold text-sm focus:border-yellow-400 focus:outline-none">
+                            <option value="1.2">بدون تمرين (مجهود مكتبي خفيف)</option>
+                            <option value="1.375">تمرين خفيف (1 - 3 أيام في الأسبوع)</option>
+                            <option value="1.55" selected>تمرين متوسط (3 - 5 أيام في الأسبوع)</option>
+                            <option value="1.725">تمرين مكثف (6 - 7 أيام في الأسبوع)</option>
+                        </select>
+                    </div>
+
+                    <!-- Goal -->
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-bold text-slate-300 block">الهدف التدريبي</label>
+                        <div class="grid grid-cols-3 gap-2.5">
+                            <button type="button" data-goal="cut" onclick="setCalcGoal('cut', this)" class="goal-btn py-3 px-2 rounded-xl bg-zinc-900 border border-white/10 text-slate-300 text-xs sm:text-sm font-bold transition">تنشيف وحرق دهون</button>
+                            <button type="button" data-goal="maintain" onclick="setCalcGoal('maintain', this)" class="goal-btn py-3 px-2 rounded-xl bg-yellow-400 text-zinc-950 text-xs sm:text-sm font-black transition">ثبات الوزن</button>
+                            <button type="button" data-goal="bulk" onclick="setCalcGoal('bulk', this)" class="goal-btn py-3 px-2 rounded-xl bg-zinc-900 border border-white/10 text-slate-300 text-xs sm:text-sm font-bold transition">تضخيم وبناء عضل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Circular Calorie Gauge & Macro Results -->
+                <div class="lg:col-span-5 bg-zinc-950/95 rounded-3xl p-6 border border-yellow-400/25 space-y-6 text-center">
+                    <div class="relative w-44 h-44 mx-auto flex items-center justify-center">
+                        <svg class="w-full h-full -rotate-90" viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="52" stroke="#27272a" stroke-width="10" fill="none" />
+                            <circle id="calorieGaugeCircle" cx="60" cy="60" r="52" stroke="#facc15" stroke-width="10" stroke-linecap="round" fill="none" stroke-dasharray="326.7" stroke-dashoffset="80" />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span class="text-[11px] font-bold text-slate-400">السعرات اليومية</span>
+                            <span id="resCalories" class="text-3xl font-black text-yellow-400">2,450</span>
+                            <span class="text-[11px] font-bold text-slate-300">سعرة حرارية</span>
+                        </div>
+                    </div>
+
+                    <!-- Macros Grid -->
+                    <div class="grid grid-cols-3 gap-2.5 text-center">
+                        <div class="p-3 rounded-2xl bg-zinc-900 border border-emerald-500/25">
+                            <span class="text-[11px] text-emerald-400 font-bold block">البروتين</span>
+                            <span id="resProtein" class="text-lg font-black text-white">156 جم</span>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-zinc-900 border border-yellow-400/25">
+                            <span class="text-[11px] text-yellow-400 font-bold block">الكارب</span>
+                            <span id="resCarbs" class="text-lg font-black text-white">290 جم</span>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-zinc-900 border border-amber-500/25">
+                            <span class="text-[11px] text-amber-400 font-bold block">الدهون</span>
+                            <span id="resFats" class="text-lg font-black text-white">72 جم</span>
+                        </div>
+                    </div>
+
+                    <!-- Water & BMI -->
+                    <div class="flex items-center justify-between text-xs bg-zinc-900/90 px-4 py-3 rounded-2xl border border-white/10">
+                        <span class="text-sky-400 font-extrabold"><i class="fa-solid fa-droplet ml-1"></i>الماء اليومي: <strong id="resWater" class="text-white">2.7 لتر</strong></span>
+                        <span class="text-slate-300 font-extrabold">مؤشر الكتلة BMI: <strong id="resBmi" class="text-yellow-400">25.2</strong></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== 7. FOOTER & CONTACT CARD ==================== -->
+    <footer class="mt-20 border-t border-yellow-400/20 bg-zinc-950/90 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 items-center gap-6 text-center md:text-right">
+            <div class="space-y-1.5">
+                <div class="flex items-center justify-center md:justify-start gap-2.5">
+                    <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-yellow-300 to-amber-500 flex items-center justify-center text-zinc-950">
+                        <i class="fa-solid fa-dumbbell text-sm -rotate-45"></i>
+                    </div>
+                    <span class="font-black text-lg text-white" dir="ltr">GYM <span class="text-yellow-400">FITNESS CLUB</span></span>
+                </div>
+                <p class="text-xs sm:text-sm text-yellow-400 font-extrabold">
+                    <i class="fa-solid fa-crown ml-1"></i>
+                    تحت إدارة: ك/ إبراهيم محي السيد
+                </p>
+                <p class="text-xs text-slate-300 font-semibold">
+                    <i class="fa-solid fa-location-dot text-yellow-400 ml-1"></i>
+                    العنوان: مقابل بنك الإسكندرية - خلف مدرسة الحامول الجديدة
+                </p>
+            </div>
+
+            <div class="text-xs text-slate-300 space-y-1.5 bg-zinc-900/90 px-5 py-3.5 rounded-2xl border border-white/10">
+                <p><strong class="text-emerald-400">الفترة الصباحية (رجال):</strong> من 9:00 صباحاً إلى 11:00 صباحاً</p>
+                <p><strong class="text-rose-400">الفترة النسائية (سيدات فقط):</strong> من 11:00 صباحاً إلى 4:00 عصراً</p>
+                <p><strong class="text-yellow-400">الفترة المسائية (رجال):</strong> من 4:00 عصراً إلى 12:00 منتصف الليل</p>
+            </div>
+
+            <!-- Official Management Contact Card -->
+            <div class="bg-zinc-900/95 p-4 rounded-2xl border border-yellow-400/30 space-y-2.5 text-center">
+                <span class="text-xs font-extrabold text-yellow-400 block">التواصل المباشر مع إدارة الجيم</span>
+                <div class="text-lg sm:text-xl font-black text-white tracking-wider" dir="ltr">01019257887</div>
+                <div class="flex items-center justify-center gap-2">
+                    <a href="tel:01019257887" class="flex-1 py-2 px-3 rounded-xl bg-yellow-400 hover:bg-yellow-300 text-zinc-950 text-xs font-black transition flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>اتصال مباشر</span>
+                    </a>
+                    <a href="https://wa.me/201019257887" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 px-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-black transition flex items-center justify-center gap-1.5">
+                        <i class="fa-brands fa-whatsapp text-sm"></i>
+                        <span>واتساب الإدارة</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Developer Credit -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-8 pt-5 border-t border-white/10 text-center">
+            <p class="text-xs sm:text-sm text-slate-400 font-bold">
+                <i class="fa-solid fa-code text-yellow-400 ml-1"></i>
+                تم التصميم والتطوير بواسطة <span class="text-yellow-400 font-black tracking-wider" dir="ltr">Phantom Lord</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ==================== MOBILE STICKY BOTTOM NAVIGATION ==================== -->
+    <nav class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-zinc-950/95 backdrop-blur-xl border-t border-yellow-400/25 px-2 py-2 grid grid-cols-4 gap-1 text-center">
+        <a href="#gallery" class="flex flex-col items-center justify-center py-1 rounded-xl text-slate-300 hover:text-yellow-400 text-[11px] font-bold">
+            <i class="fa-solid fa-images text-sm mb-0.5 text-yellow-400"></i>
+            <span>الصور</span>
+        </a>
+        <a href="#memberships" class="flex flex-col items-center justify-center py-1 rounded-xl text-slate-300 hover:text-yellow-400 text-[11px] font-bold">
+            <i class="fa-solid fa-tags text-sm mb-0.5 text-yellow-400"></i>
+            <span>الاشتراكات</span>
+        </a>
+        <a href="#trainers" class="flex flex-col items-center justify-center py-1 rounded-xl text-slate-300 hover:text-yellow-400 text-[11px] font-bold">
+            <i class="fa-solid fa-user-ninja text-sm mb-0.5 text-yellow-400"></i>
+            <span>المدربين</span>
+        </a>
+        <a href="#calories" class="flex flex-col items-center justify-center py-1 rounded-xl text-slate-300 hover:text-yellow-400 text-[11px] font-bold">
+            <i class="fa-solid fa-calculator text-sm mb-0.5 text-yellow-400"></i>
+            <span>السعرات</span>
+        </a>
+    </nav>
+
+    <!-- ==================== LIGHTBOX MODAL ==================== -->
+    <div id="lightboxModal" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4" onclick="closeLightbox(event)">
+        <div class="relative max-w-4xl w-full bg-zinc-900 rounded-3xl overflow-hidden border border-yellow-400/40 shadow-2xl" onclick="event.stopPropagation()">
+            <button type="button" onclick="closeLightbox()" class="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-zinc-950/80 hover:bg-yellow-400 text-white hover:text-zinc-950 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <img id="lightboxImg" src="" alt="" class="w-full max-h-[72vh] object-contain bg-zinc-950">
+            <div class="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-zinc-900">
+                <div>
+                    <h3 id="lightboxTitle" class="text-lg font-black text-white"></h3>
+                    <p id="lightboxDesc" class="text-xs sm:text-sm text-slate-300"></p>
+                </div>
+                <span id="lightboxBadge" class="px-3 py-1 rounded-xl bg-yellow-400/15 text-yellow-400 text-xs font-black self-start"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== QR CODE STAND PREVIEW MODAL ==================== -->
+    <div id="qrModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4" onclick="closeQrModal(event)">
+        <div class="max-w-md w-full bg-zinc-900 rounded-3xl p-6 border border-yellow-400/40 shadow-2xl space-y-5 text-center" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg font-black text-white">ستاند QR Code الريسبشن</h3>
+                <button type="button" onclick="closeQrModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-yellow-400 text-white hover:text-zinc-950 flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Printable Reception Stand Card -->
+            <div id="qrPrintCard" class="p-6 rounded-3xl bg-zinc-950 border-2 border-yellow-400 space-y-4">
+                <div class="space-y-1">
+                    <span class="text-xs font-extrabold text-yellow-400 block">امسح الكود بكاميرا الموبايل</span>
+                    <h4 class="text-2xl font-black text-white" dir="ltr">GYM <span class="text-yellow-400">FITNESS CLUB</span></h4>
+                    <p class="text-xs text-slate-300 font-bold">تحت إدارة ك/ إبراهيم محي السيد</p>
+                </div>
+
+                <div id="qrCodeCanvasBox" class="w-48 h-48 mx-auto p-3 rounded-2xl bg-white flex items-center justify-center shadow-lg"></div>
+
+                <div class="space-y-1 pt-1">
+                    <p class="text-xs font-extrabold text-yellow-400">الصور • المواعيد • الاشتراكات • المدربين</p>
+                    <p class="text-[11px] font-bold text-rose-400">فترة نسائية يومياً: 11 ص - 4 عصراً</p>
+                    <p class="text-[11px] text-slate-300 font-semibold">
+                        <i class="fa-solid fa-location-dot text-yellow-400 ml-1"></i>
+                        مقابل بنك الإسكندرية - خلف مدرسة الحامول الجديدة
+                    </p>
+                    <p class="text-xs font-black text-emerald-400 pt-0.5" dir="ltr">
+                        <i class="fa-solid fa-phone ml-1"></i>01019257887
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-2 text-right">
+                <label class="text-xs font-bold text-slate-300 block">رابط الصفحة المربوط بالكود (يتحدث تلقائياً بعد الرفع):</label>
+                <input type="text" id="qrUrlInput" oninput="regenerateQrCode()" class="w-full p-2.5 rounded-xl bg-zinc-950 border border-white/15 text-xs text-yellow-300 font-mono text-left" dir="ltr">
+            </div>
+
+            <button type="button" onclick="window.print()" class="w-full py-3 rounded-2xl bg-yellow-400 hover:bg-yellow-300 text-zinc-950 text-sm font-black transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-print"></i>
+                <span>طباعة كارت الـ QR Code للريسبشن</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+    <script>
+        // 1. LIVE EGYPT TIME SHIFT CHECKER
+        function updateLiveShiftStatus() {
+            const badge = document.getElementById('liveShiftStatusBadge');
+            const textEl = document.getElementById('liveShiftStatusText');
+            if (!badge || !textEl) return;
+
+            const now = new Date();
+            const hour = now.getHours();
+
+            if (hour >= 9 && hour < 11) {
+                badge.className = "inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-xs sm:text-sm font-black";
+                textEl.textContent = "مفتوح الآن • الفترة الصباحية للرجال (9:00 ص - 11:00 ص)";
+            } else if (hour >= 11 && hour < 16) {
+                badge.className = "inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-rose-500/20 border border-rose-500/50 text-rose-300 text-xs sm:text-sm font-black";
+                textEl.textContent = "مفتوح الآن • الفترة النسائية للسيدات فقط (11:00 ص - 4:00 م)";
+            } else if (hour >= 16 && hour < 24) {
+                badge.className = "inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-yellow-400/15 border border-yellow-400/40 text-yellow-300 text-xs sm:text-sm font-black";
+                textEl.textContent = "مفتوح الآن • الفترة المسائية للرجال (4:00 م - 12:00 ص)";
+            } else {
+                badge.className = "inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-zinc-800 border border-white/15 text-slate-300 text-xs sm:text-sm font-black";
+                textEl.textContent = "مغلق حالياً • تفتح الفترة الصباحية الساعة 9:00 صباحاً";
+            }
+        }
+
+        // 2. GALLERY DATA (9 ORIGINAL PHOTOS) & INLINE SVG FALLBACKS
+        const GALLERY_ITEMS = [
+            {
+                id: 1,
+                category: "cardio",
+                categoryLabel: "قسم الكارديو والمشايات",
+                title: "قسم المشايات الكهربائية وأجهزة الأوربتراك",
+                desc: "مشايات كهربائية احترافية (Jaguar) وأجهزة أوربتراك حديثة أمام واجهة زجاجية بإضاءة LED ذهبية وسقف مضيء.",
+                file: "WhatsApp Image 2026-11-18 at 22.45.18 (1).jpeg"
+            },
+            {
+                id: 2,
+                category: "cardio",
+                categoryLabel: "قسم الكارديو والمشايات",
+                title: "الممر الرئيسي وصالة الكارديو الحديثة",
+                desc: "تصميم عصري بإضاءة سقف هندسية متعرجة (Zig-Zag LED) مع رؤية كاملة لشعار FITNESS CLUB في خلفية الصالة.",
+                file: "WhatsApp Image 2026-11-18 at 22.45.18 (2).jpeg"
+            },
+            {
+                id: 3,
+                category: "weights",
+                categoryLabel: "صالة الحديد والأوزان",
+                title: "صالة أجهزة المقاومة والقطنية والدفع",
+                desc: "تشكيلة متكاملة من أجهزة التقوية والقطنية وأجهزة الدفع والسحب موزعة باحترافية مع إضاءة أعمدة دافئة.",
+                file: "WhatsApp Image 2026-11-18 at 22.45.18 (3).jpeg"
+            },
+            {
+                id: 4,
+                category: "weights",
+                categoryLabel: "صالة الحديد والأوزان",
+                title: "منطقة الكابل كروس (Cable Cross) والسحب العالي",
+                desc: "أجهزة كابل كروس متعددة الزوايا وبكرات سحب عالية لتمارين الصدر والظهر والذراعين بأعلى كفاءة.",
+                file: "WhatsApp Image 2026-11-18 at 22.45.18 (4).jpeg"
+            },
+            {
+                id: 5,
+                category: "supplements",
+                categoryLabel: "ركن المكملات والإكسسوارات",
+                title: "ركن المكملات الغذائية واستاند الترحيب",
+                desc: "تشكيلة متنوعة من الواي بروتين والكرياتين والأحماض الأمينية والشيكرات وأحزمة التمرين تحت إدارة ك/ إبراهيم محي السيد.",
+                file: "WhatsApp Image 2026-11-18 at 22.45.18.jpeg"
+            },
+            {
+                id: 6,
+                category: "weights",
+                categoryLabel: "صالة الحديد والأوزان",
+                title: "استاند الدمبلز الكامل ومنطقة البنشات الحرة",
+                desc: "مجموعة كاملة من الدمبلز بأوزان متدرجة أمام مرايا بإضاءة خلفية ذهبية وشعار FITNESS CLUB المميز.",
+                file: "WhatsApp Image 2026-11-18 at 22.45.19 (1).jpeg"
+            },
+            {
+                id: 7,
+                category: "weights",
+                categoryLabel: "صالة الحديد والأوزان",
+                title: "صالة الأجهزة المتخصصة وأرضيات المطاط",
+                desc: "أرضيات مطاطية عالية التحمل لامتصاص الصدمات مع توزيع مريح للأجهزة وممرات واسعة للتمرين.",
+                file: "WhatsApp Image 2026-11-18 at 22.45.19 (2).jpeg"
+            },
+            {
+                id: 8,
+                category: "weights",
+                categoryLabel: "صالة الحديد والأوزان",
+                title: "زاوية أجهزة الأرجل والسميث والجداريات التحفيزية",
+                desc: "جهاز دفع الرجل (Leg Press) وجهاز السميث مع عبارات تحفيزية (Discipline Never Takes A Day Off).",
+                file: "WhatsApp Image 2026-11-18 at 22.45.19 (3).jpeg"
+            },
+            {
+                id: 9,
+                category: "weights",
+                categoryLabel: "صالة الحديد والأوزان",
+                title: "منطقة البنشات المتعددة والمتوازي والعقلة",
+                desc: "بنشات مستوية ومائلة لتمارين الصدر والأكتاف مع جهاز المتوازي والعقلة لتمارين وزن الجسم.",
+                file: "WhatsApp Image 2026-11-18 at 22.45.19.jpeg"
+            }
+        ];
+
+        function generateGallerySvgFallback(item) {
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520">
+                <rect width="800" height="520" fill="#121215"/>
+                <path d="M0 90 L180 40 L340 110 L520 35 L700 100 L800 65" stroke="#facc15" stroke-width="3" fill="none" opacity="0.5"/>
+                <rect x="40" y="140" width="720" height="260" rx="24" fill="#18181b" stroke="#facc15" stroke-opacity="0.35" stroke-width="2"/>
+                <text x="400" y="235" fill="#facc15" font-size="24" font-weight="900" text-anchor="middle" font-family="Cairo, sans-serif">GYM FITNESS CLUB • #${item.id}</text>
+                <text x="400" y="280" fill="#f8fafc" font-size="20" font-weight="700" text-anchor="middle" font-family="Cairo, sans-serif">${item.title}</text>
+                <text x="400" y="330" fill="#94a3b8" font-size="14" font-family="monospace" text-anchor="middle">${item.file}</text>
+            </svg>`;
+            return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+        }
+
+        let currentGalleryFilter = 'all';
+
+        function renderGallery(filter = 'all') {
+            currentGalleryFilter = filter;
+            const grid = document.getElementById('galleryGrid');
+            if (!grid) return;
+
+            const items = filter === 'all' ? GALLERY_ITEMS : GALLERY_ITEMS.filter(i => i.category === filter);
+            grid.innerHTML = items.map(item => {
+                const imgSrc = customPhotoMap[item.id] || item.file;
+                const fallbackSrc = generateGallerySvgFallback(item);
+                return `
+                <div onclick="openLightbox(${item.id})" class="glass-card rounded-3xl overflow-hidden cursor-pointer group hover:border-yellow-400/70 transition flex flex-col justify-between">
+                    <div class="relative h-60 bg-zinc-950 overflow-hidden">
+                        <img src="${imgSrc}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='${fallbackSrc}';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-3 right-3 px-3 py-1 rounded-xl bg-zinc-950/85 border border-yellow-400/35 text-yellow-400 text-[11px] font-extrabold backdrop-blur-md">
+                            ${item.categoryLabel}
+                        </span>
+                        <span class="absolute top-3 left-3 w-8 h-8 rounded-xl bg-yellow-400 text-zinc-950 text-xs font-black flex items-center justify-center shadow">
+                            #${item.id}
+                        </span>
+                    </div>
+                    <div class="p-5 space-y-1.5">
+                        <span class="text-[11px] font-mono text-yellow-400/80 block truncate" dir="ltr">${item.file}</span>
+                        <h3 class="text-base sm:text-lg font-black text-white group-hover:text-yellow-400 transition">${item.title}</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">${item.desc}</p>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        function filterGallery(category, btn) {
+            document.querySelectorAll('.gallery-filter-btn').forEach(b => {
+                b.className = "gallery-filter-btn px-4 py-2 rounded-xl bg-zinc-900 border border-white/10 text-slate-300 hover:border-yellow-400/40 text-xs sm:text-sm font-bold transition";
+            });
+            if (btn) {
+                btn.className = "gallery-filter-btn px-4 py-2 rounded-xl bg-yellow-400 text-zinc-950 text-xs sm:text-sm font-black transition";
+            }
+            renderGallery(category);
+        }
+
+        function openLightbox(itemId) {
+            const item = GALLERY_ITEMS.find(i => i.id === itemId);
+            if (!item) return;
+            const imgSrc = customPhotoMap[item.id] || item.file;
+            const fallbackSrc = generateGallerySvgFallback(item);
+            const imgEl = document.getElementById('lightboxImg');
+            imgEl.onerror = function() { this.onerror = null; this.src = fallbackSrc; };
+            imgEl.src = imgSrc;
+            document.getElementById('lightboxTitle').textContent = item.title;
+            document.getElementById('lightboxDesc').textContent = item.desc;
+            document.getElementById('lightboxBadge').textContent = item.categoryLabel;
+            document.getElementById('lightboxModal').classList.remove('hidden');
+        }
+
+        function closeLightbox(event) {
+            if (!event || event.target.id === 'lightboxModal') {
+                document.getElementById('lightboxModal').classList.add('hidden');
+            }
+        }
+
+        // 3. MEMBERSHIPS DATA & RENDERER
+        const MEMBERSHIPS_DATA = [
+            {
+                duration: "اشتراك شهر واحد",
+                tag: "مرن وشهري",
+                popular: false,
+                gymOnly: { price: "400 ج.م", oldPrice: null, save: null },
+                gymTreadmill: { price: "500 ج.م", oldPrice: null, save: null },
+                features: ["دخول يومي كامل للصالة", "استخدام جميع أجهزة الحديد والأوزان", "متابعة عامة من كباتن الصالة"]
+            },
+            {
+                duration: "عرض 3 شهور",
+                tag: "توفير ممتاز",
+                popular: false,
+                gymOnly: { price: "1,000 ج.م", oldPrice: "1,200 ج.م", save: "وفر 200 ج.م" },
+                gymTreadmill: { price: "1,200 ج.م", oldPrice: "1,500 ج.م", save: "وفر 300 ج.م" },
+                features: ["90 يوم تمرين متواصل", "استخدام كامل لجميع الأجهزة", "خصم خاص على الباقة الربع سنوية"]
+            },
+            {
+                duration: "عرض 6 شهور",
+                tag: "الأكثر اختياراً",
+                popular: true,
+                gymOnly: { price: "1,800 ج.م", oldPrice: "2,400 ج.م", save: "وفر 600 ج.م" },
+                gymTreadmill: { price: "2,200 ج.م", oldPrice: "3,000 ج.م", save: "وفر 800 ج.م" },
+                features: ["180 يوم التزام وتحول بدني", "استخدام كامل لجميع الأجهزة", "أعلى قيمة مقابل السعر"]
+            },
+            {
+                duration: "عرض السنة (12 شهر)",
+                tag: "أقوى خصم سنوي",
+                popular: false,
+                gymOnly: { price: "3,400 ج.م", oldPrice: "4,800 ج.م", save: "وفر 1,400 ج.م" },
+                gymTreadmill: { price: "4,000 ج.م", oldPrice: "6,000 ج.م", save: "وفر 2,000 ج.م" },
+                features: ["اشتراك سنوي شامل طوال العام", "أكبر توفير مالي على مدار السنة", "أولوية في العروض والفعاليات"]
+            }
+        ];
+
+        let currentPlanType = 'gymOnly';
+
+        function setPlanType(type) {
+            currentPlanType = type;
+            const btnOnly = document.getElementById('btnGymOnly');
+            const btnTread = document.getElementById('btnGymTreadmill');
+            if (type === 'gymOnly') {
+                btnOnly.className = "px-5 py-2.5 rounded-xl bg-yellow-400 text-zinc-950 text-xs sm:text-sm font-black transition";
+                btnTread.className = "px-5 py-2.5 rounded-xl text-slate-300 hover:text-white text-xs sm:text-sm font-extrabold transition";
+            } else {
+                btnTread.className = "px-5 py-2.5 rounded-xl bg-yellow-400 text-zinc-950 text-xs sm:text-sm font-black transition";
+                btnOnly.className = "px-5 py-2.5 rounded-xl text-slate-300 hover:text-white text-xs sm:text-sm font-extrabold transition";
+            }
+            renderMemberships();
+        }
+
+        function renderMemberships() {
+            const grid = document.getElementById('membershipsGrid');
+            if (!grid) return;
+
+            grid.innerHTML = MEMBERSHIPS_DATA.map(plan => {
+                const activeData = currentPlanType === 'gymOnly' ? plan.gymOnly : plan.gymTreadmill;
+                const altLabel = currentPlanType === 'gymOnly'
+                    ? `باقة جيم ومشاية: ${plan.gymTreadmill.price}`
+                    : `باقة جيم فقط: ${plan.gymOnly.price}`;
+                const extraFeature = currentPlanType === 'gymOnly'
+                    ? "باقة صالة الحديد والأوزان الحرة"
+                    : "شامل استخدام المشايات الكهربائية والكارديو";
+
+                return `
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between space-y-6 transition ${plan.popular ? 'border-2 border-yellow-400 shadow-2xl shadow-yellow-400/15 relative' : 'border border-white/10 hover:border-yellow-400/50'}">
+                    ${plan.popular ? '<span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-yellow-400 text-zinc-950 text-[11px] font-black whitespace-nowrap">الأكثر طلباً</span>' : ''}
+
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="text-xs font-extrabold text-yellow-400">${plan.tag}</span>
+                            ${activeData.save ? `<span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-black">${activeData.save}</span>` : ''}
+                        </div>
+
+                        <h3 class="text-xl font-black text-white">${plan.duration}</h3>
+
+                        <div class="p-4 rounded-2xl bg-zinc-950/90 border border-white/10 space-y-1">
+                            <div class="text-3xl font-black text-yellow-400">${activeData.price}</div>
+                            ${activeData.oldPrice ? `<div class="text-xs text-slate-400 line-through">بدلاً من ${activeData.oldPrice}</div>` : '<div class="text-xs text-slate-400">سعر الباقة الشهري</div>'}
+                            <div class="text-[11px] text-emerald-400 font-bold pt-1">${altLabel}</div>
+                        </div>
+
+                        <ul class="space-y-2 text-xs text-slate-300">
+                            <li class="flex items-center gap-2 font-bold text-white">
+                                <i class="fa-solid fa-circle-check text-yellow-400"></i>
+                                <span>${extraFeature}</span>
+                            </li>
+                            ${plan.features.map(f => `
+                                <li class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                    <span>${f}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+
+                    <!-- Display-Only Reception Badge -->
+                    <div class="w-full py-3 px-3 rounded-2xl bg-zinc-950/90 border border-yellow-400/30 text-slate-200 text-xs font-bold flex flex-col items-center justify-center gap-1 text-center leading-relaxed">
+                        <div class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-building-user text-yellow-400 shrink-0"></i>
+                            <span>الاشتراك والتفعيل من خلال ريسبشن FITNESS CLUB</span>
+                        </div>
+                        <a href="tel:01019257887" class="text-[11px] font-extrabold text-emerald-400 hover:text-emerald-300 transition">
+                            للاستفسار والتواصل مع إدارة الجيم: <span dir="ltr">01019257887</span>
+                        </a>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        // 4. PERSONAL TRAINERS DATA (2 TRAINERS ONLY: CAPTAIN IBRAHIM MOHY & CAPTAIN ISLAM MOHY)
+        const TRAINERS_DATA = [
+            {
+                id: "pt_ibrahim",
+                name: "كابتن / إبراهيم محي",
+                badge: "المدير الفني • بطل IFBB",
+                specialty: "بطل Iron Man Classic • مدرب شخصي وأخصائي تغذية",
+                bio: "إشراف احترافي متكامل لبناء الكتلة العضلية الصافية والتنشيف وتجهيز اللاعبين بأحدث أساليب التدريب والتغذية الرياضية.",
+                image: "WhatsApp Image 2026-11-18 at 23.01.18.jpeg",
+                tags: ["بطل كمال أجسام", "تضخيم وتنشيف", "تأهيل وتجهيز"],
+                includedBullets: [
+                    "برنامج تدريبي شخصي مصمم خصيصاً لهدفك ومستواك",
+                    "خطة تغذية رياضية شاملة ومحسوبة السعرات والماكروز",
+                    "متابعة مستمرة للأوزان والتطور البدني أسبوعياً"
+                ],
+                price1Month: "2,000 ج.م",
+                price3Months: "4,000 ج.م",
+                oldPrice3Months: "6,000 ج.م",
+                saving3Months: "وفر 2,000 ج.م"
+            },
+            {
+                id: "pt_islam",
+                name: "كابتن / إسلام محي",
+                badge: "مدرب معتمد (PT)",
+                specialty: "مدرب شخصي معتمد (PT) وأخصائي تغذية رياضية",
+                bio: "متابعة فردية دقيقة داخل الصالة لتطوير القوة البدنية، حرق الدهون، وبناء العضلات مع تصحيح الأداء الحركي على جميع الأجهزة.",
+                image: "captain-islam.jpeg",
+                tags: ["تدريب شخصي PT", "بناء عضلي وحرق دهون", "متابعة غذائية"],
+                includedBullets: [
+                    "برنامج تدريبي مخصص لهدفك البدني داخل الصالة",
+                    "خطة تغذية متكاملة ومحسوبة السعرات الحرارية",
+                    "متابعة مستمرة للأوزان والتطور البدني وتصحيح التكنيك"
+                ],
+                price1Month: "1,500 ج.م",
+                price3Months: "2,500 ج.م",
+                oldPrice3Months: "4,500 ج.م",
+                saving3Months: "وفر 2,000 ج.م"
+            }
+        ];
+
+        window.generateTrainerFallbackUri = function(trainerId) {
+            const isIbrahim = trainerId === 'pt_ibrahim';
+            const name = isIbrahim ? 'كابتن / إبراهيم محي' : 'كابتن / إسلام محي';
+            const fileHint = isIbrahim ? 'WhatsApp Image 2026-11-18 at 23.01.18.jpeg' : 'captain-islam.jpeg';
+            const badge = isIbrahim ? 'IFBB CHAMPION • 2,000 / 4,000 EGP' : 'CERTIFIED PT • 1,500 / 2,500 EGP';
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560">
+                <defs>
+                    <linearGradient id="trBg_${trainerId}" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#09090b"/>
+                        <stop offset="50%" stop-color="#18181b"/>
+                        <stop offset="100%" stop-color="#09090b"/>
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="560" fill="url(#trBg_${trainerId})"/>
+                <circle cx="400" cy="185" r="78" fill="#27272a" stroke="#facc15" stroke-width="5"/>
+                <path d="M270 400 C270 315, 530 315, 530 400 Z" fill="#27272a" stroke="#facc15" stroke-width="4"/>
+                <text x="400" y="455" fill="#facc15" font-size="28" font-weight="900" text-anchor="middle" font-family="Cairo, sans-serif">${name}</text>
+                <text x="400" y="490" fill="#e2e8f0" font-size="15" font-weight="700" text-anchor="middle" font-family="sans-serif">${badge}</text>
+                <text x="400" y="520" fill="#94a3b8" font-size="13" font-family="monospace" text-anchor="middle">${fileHint}</text>
+            </svg>`;
+            return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+        };
+
+        function renderTrainers() {
+            const grid = document.getElementById('trainersGrid');
+            if (!grid) return;
+            grid.className = "grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto";
+            grid.innerHTML = TRAINERS_DATA.map(trainer => {
+                const trainerSrc = customTrainerPhotoMap[trainer.id] || trainer.image;
+                const fallbackUri = window.generateTrainerFallbackUri(trainer.id);
+
+                return `
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border border-yellow-400/30 hover:border-yellow-400/80 transition group shadow-2xl">
+                    <div>
+                        <div class="relative h-80 sm:h-96 bg-zinc-900 overflow-hidden">
+                            <img src="${trainerSrc}" 
+                                 alt="${trainer.name}" 
+                                 class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='${fallbackUri}';">
+                            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/35 to-transparent"></div>
+                            
+                            <div class="absolute top-3 right-3 flex flex-wrap items-center gap-1.5">
+                                <span class="px-3 py-1 rounded-xl bg-yellow-400 text-zinc-950 text-xs font-black shadow">
+                                    <i class="fa-solid fa-trophy ml-1"></i>${trainer.badge}
+                                </span>
+                            </div>
+
+                            <!-- Individual Trainer Photo Upload & Embed Button -->
+                            <div class="trainer-upload-overlay absolute top-3 left-3">
+                                <input type="file" id="trainerPhotoInput_${trainer.id}" accept="image/*" class="hidden" onchange="handleSingleTrainerPhotoUpload(event, '${trainer.id}')">
+                                <button type="button" onclick="document.getElementById('trainerPhotoInput_${trainer.id}').click()" class="px-3 py-1.5 rounded-xl bg-zinc-950/90 hover:bg-yellow-400 text-yellow-400 hover:text-zinc-950 border border-yellow-400/40 text-[11px] font-extrabold backdrop-blur-md transition flex items-center gap-1.5 shadow-lg">
+                                    <i class="fa-solid fa-camera"></i>
+                                    <span>تثبيت صورة الكابتن</span>
+                                </button>
+                            </div>
+
+                            <div class="absolute bottom-4 inset-x-5">
+                                <h3 class="text-xl sm:text-2xl font-black text-white">${trainer.name}</h3>
+                                <p class="text-xs sm:text-sm font-extrabold text-yellow-400 mt-0.5">${trainer.specialty}</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 sm:p-6 space-y-5">
+                            <!-- Comprehensive Follow-up Highlight Banner -->
+                            <div class="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-clipboard-check text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs sm:text-sm font-black text-emerald-300 block">شامل متابعة غذائية وتدريب شخصي</span>
+                                    <span class="text-[11px] text-slate-300">نظام غذائي محسوب السعرات + برنامج تمرين مخصص ومتابعة مستمرة</span>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-1.5">
+                                ${trainer.tags.map(tag => `
+                                    <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-200 text-[11px] font-bold">
+                                        ${tag}
+                                    </span>
+                                `).join('')}
+                            </div>
+
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${trainer.bio}</p>
+
+                            <!-- Included Follow-up Details -->
+                            <ul class="space-y-2 text-xs text-slate-200 bg-zinc-950/60 p-4 rounded-2xl border border-white/5">
+                                ${trainer.includedBullets.map(b => `
+                                    <li class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-check text-yellow-400 shrink-0"></i>
+                                        <span>${b}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+
+                            <!-- Clear Side-by-Side Pricing Boxes (1 Month vs 3 Months Offer) -->
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="p-4 rounded-2xl bg-zinc-950/90 border border-white/15 text-center space-y-1">
+                                    <span class="text-xs font-extrabold text-slate-300 block">اشتراك الشهر</span>
+                                    <span class="text-2xl sm:text-3xl font-black text-white block">${trainer.price1Month}</span>
+                                    <span class="text-[10px] text-slate-400 block">تدريب شخصي + متابعة غذائية</span>
+                                </div>
+                                <div class="relative p-4 rounded-2xl bg-gradient-to-b from-yellow-400/15 to-zinc-950 border-2 border-yellow-400 text-center space-y-1">
+                                    <span class="absolute -top-2.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-yellow-400 text-zinc-950 text-[10px] font-black whitespace-nowrap">
+                                        ${trainer.saving3Months}
+                                    </span>
+                                    <span class="text-xs font-extrabold text-yellow-300 block">عرض الـ 3 شهور</span>
+                                    <span class="text-2xl sm:text-3xl font-black text-yellow-400 block">${trainer.price3Months}</span>
+                                    <span class="text-[10px] text-slate-400 line-through block">بدلاً من ${trainer.oldPrice3Months}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Display-Only Reception & Management Contact Notice -->
+                    <div class="px-5 sm:px-6 pb-5 sm:pb-6">
+                        <div class="w-full py-3.5 px-4 rounded-2xl bg-zinc-950/95 border border-yellow-400/35 text-slate-200 text-xs font-bold flex flex-col items-center justify-center gap-1.5 text-center leading-relaxed">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-building-user text-yellow-400 shrink-0"></i>
+                                <span>الاشتراك والتنسيق مباشرة من خلال ريسبشن GYM FITNESS CLUB</span>
+                            </div>
+                            <a href="tel:01019257887" class="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-extrabold transition">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>أو التواصل مع إدارة الجيم على: <span dir="ltr">01019257887</span></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        // 5. ORIGINAL PHOTOS BASE64 EMBEDDER & PERMANENT SINGLE-FILE HTML EXPORTER
+        const EMBEDDED_ORIGINAL_PHOTOS = {};
+        const EMBEDDED_TRAINER_PHOTOS = {};
+        let customPhotoMap = { ...EMBEDDED_ORIGINAL_PHOTOS };
+        let customTrainerPhotoMap = { ...EMBEDDED_TRAINER_PHOTOS };
+
+        function loadSavedCustomPhotos() {
+            try {
+                const saved = localStorage.getItem('fitness_club_custom_photos');
+                if (saved) {
+                    customPhotoMap = { ...EMBEDDED_ORIGINAL_PHOTOS, ...JSON.parse(saved) };
+                }
+                const savedTrainers = localStorage.getItem('fitness_club_trainer_photos');
+                if (savedTrainers) {
+                    customTrainerPhotoMap = { ...EMBEDDED_TRAINER_PHOTOS, ...JSON.parse(savedTrainers) };
+                }
+                if (Object.keys(customPhotoMap).length > 0 || Object.keys(customTrainerPhotoMap).length > 0) {
+                    const resetBtn = document.getElementById('resetPhotosBtn');
+                    const dlBtn = document.getElementById('downloadEmbeddedHtmlBtn');
+                    if (resetBtn) resetBtn.classList.remove('hidden');
+                    if (dlBtn) dlBtn.classList.remove('hidden');
+                    updateHeroFromCustomPhotos();
+                }
+            } catch (err) {
+                console.warn('Could not load saved photos:', err);
+            }
+        }
+
+        function updateHeroFromCustomPhotos() {
+            if (customPhotoMap[6]) {
+                const heroImg = document.getElementById('heroBgImage');
+                if (heroImg) {
+                    heroImg.style.display = 'block';
+                    heroImg.src = customPhotoMap[6];
+                }
+            }
+        }
+
+        function compressImageFileToDataUrl(file, maxWidth = 1080, quality = 0.84) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const scale = Math.min(1, maxWidth / img.width);
+                        const canvas = document.createElement('canvas');
+                        canvas.width = Math.round(img.width * scale);
+                        canvas.height = Math.round(img.height * scale);
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                        resolve(canvas.toDataURL('image/jpeg', quality));
+                    };
+                    img.onerror = () => resolve(e.target.result);
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        async function handleSingleTrainerPhotoUpload(event, trainerId) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+            const dataUrl = await compressImageFileToDataUrl(file, 1080, 0.86);
+            customTrainerPhotoMap[trainerId] = dataUrl;
+            try {
+                localStorage.setItem('fitness_club_trainer_photos', JSON.stringify(customTrainerPhotoMap));
+            } catch (e) {}
+            document.getElementById('resetPhotosBtn')?.classList.remove('hidden');
+            document.getElementById('downloadEmbeddedHtmlBtn')?.classList.remove('hidden');
+            renderTrainers();
+        }
+
+        async function handleRealPhotosUpload(event) {
+            const files = Array.from(event.target.files || []);
+            if (!files.length) return;
+            await processSelectedPhotoFiles(files);
+        }
+
+        async function processSelectedPhotoFiles(files) {
+            const selected = files.slice(0, 9);
+            for (let i = 0; i < selected.length; i++) {
+                const file = selected[i];
+                const exactMatch = GALLERY_ITEMS.find(item => item.file.toLowerCase() === file.name.toLowerCase());
+                const targetId = exactMatch ? exactMatch.id : (i + 1);
+                const dataUrl = await compressImageFileToDataUrl(file, 1080, 0.84);
+                customPhotoMap[targetId] = dataUrl;
+            }
+            try {
+                localStorage.setItem('fitness_club_custom_photos', JSON.stringify(customPhotoMap));
+            } catch (e) {}
+
+            document.getElementById('resetPhotosBtn').classList.remove('hidden');
+            document.getElementById('downloadEmbeddedHtmlBtn').classList.remove('hidden');
+            document.getElementById('photoUploadStatus').innerHTML = `
+                <div class="flex items-center gap-2.5 text-emerald-400 font-extrabold">
+                    <i class="fa-solid fa-circle-check text-lg"></i>
+                    <span>تم تثبيت الصور الأصلية (${selected.length} صور) داخل الصفحة بنجاح! اضغط على الزر الأخضر لتحميل ملف الموقع مدمجاً به الصور للأبد.</span>
+                </div>
+            `;
+            updateHeroFromCustomPhotos();
+            renderGallery(currentGalleryFilter);
+            renderTrainers();
+        }
+
+        function downloadPermanentEmbeddedHtml() {
+            const clonedDoc = document.documentElement.cloneNode(true);
+            const dropzone = clonedDoc.querySelector('#photoUploadDropzone');
+            if (dropzone) dropzone.remove();
+            clonedDoc.querySelectorAll('.trainer-upload-overlay').forEach(el => el.remove());
+
+            let exportedHtml = '<!DOCTYPE html>\n' + clonedDoc.outerHTML;
+            const embeddedGymJson = JSON.stringify(customPhotoMap);
+            const embeddedTrainersJson = JSON.stringify(customTrainerPhotoMap);
+
+            exportedHtml = exportedHtml.replace(
+                /const EMBEDDED_ORIGINAL_PHOTOS = \{.*?\};/s,
+                `const EMBEDDED_ORIGINAL_PHOTOS = ${embeddedGymJson};`
+            );
+            exportedHtml = exportedHtml.replace(
+                /const EMBEDDED_TRAINER_PHOTOS = \{.*?\};/s,
+                `const EMBEDDED_TRAINER_PHOTOS = ${embeddedTrainersJson};`
+            );
+
+            const blob = new Blob([exportedHtml], { type: 'text/html;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'index.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function clearSavedCustomPhotos() {
+            customPhotoMap = {};
+            customTrainerPhotoMap = {};
+            try {
+                localStorage.removeItem('fitness_club_custom_photos');
+                localStorage.removeItem('fitness_club_trainer_photos');
+            } catch (e) {}
+            document.getElementById('resetPhotosBtn').classList.add('hidden');
+            document.getElementById('downloadEmbeddedHtmlBtn').classList.add('hidden');
+            renderGallery(currentGalleryFilter);
+            renderTrainers();
+        }
+
+        // Drag and Drop support on Gallery Dropzone
+        function setupGalleryDropzone() {
+            const dz = document.getElementById('photoUploadDropzone');
+            if (!dz) return;
+            dz.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dz.classList.add('border-yellow-400', 'bg-yellow-400/10');
+            });
+            dz.addEventListener('dragleave', () => {
+                dz.classList.remove('border-yellow-400', 'bg-yellow-400/10');
+            });
+            dz.addEventListener('drop', async (e) => {
+                e.preventDefault();
+                dz.classList.remove('border-yellow-400', 'bg-yellow-400/10');
+                const files = Array.from(e.dataTransfer.files || []).filter(f => f.type.startsWith('image/'));
+                if (files.length) await processSelectedPhotoFiles(files);
+            });
+        }
+
+        // 6. CALORIE & MACRO CALCULATOR LOGIC
+        let calcGender = 'male';
+        let calcGoal = 'maintain';
+
+        function setCalcGender(gender) {
+            calcGender = gender;
+            const maleBtn = document.getElementById('genderMaleBtn');
+            const femaleBtn = document.getElementById('genderFemaleBtn');
+            if (gender === 'male') {
+                maleBtn.className = "py-3 px-4 rounded-2xl bg-yellow-400 text-zinc-950 font-black text-sm flex items-center justify-center gap-2 transition";
+                femaleBtn.className = "py-3 px-4 rounded-2xl bg-zinc-900 border border-white/10 text-slate-300 font-bold text-sm flex items-center justify-center gap-2 transition";
+            } else {
+                femaleBtn.className = "py-3 px-4 rounded-2xl bg-rose-500 text-white font-black text-sm flex items-center justify-center gap-2 transition";
+                maleBtn.className = "py-3 px-4 rounded-2xl bg-zinc-900 border border-white/10 text-slate-300 font-bold text-sm flex items-center justify-center gap-2 transition";
+            }
+            calculateMacros();
+        }
+
+        function setCalcGoal(goal, btn) {
+            calcGoal = goal;
+            document.querySelectorAll('.goal-btn').forEach(b => {
+                b.className = "goal-btn py-3 px-2 rounded-xl bg-zinc-900 border border-white/10 text-slate-300 text-xs sm:text-sm font-bold transition";
+            });
+            if (btn) {
+                btn.className = "goal-btn py-3 px-2 rounded-xl bg-yellow-400 text-zinc-950 text-xs sm:text-sm font-black transition";
+            }
+            calculateMacros();
+        }
+
+        function calculateMacros() {
+            const age = parseFloat(document.getElementById('calcAge').value) || 25;
+            const weight = parseFloat(document.getElementById('calcWeight').value) || 75;
+            const height = parseFloat(document.getElementById('calcHeight').value) || 175;
+            const activity = parseFloat(document.getElementById('calcActivity').value) || 1.55;
+
+            // Mifflin-St Jeor Equation
+            let bmr = (10 * weight) + (6.25 * height) - (5 * age) + (calcGender === 'male' ? 5 : -161);
+            let tdee = bmr * activity;
+
+            if (calcGoal === 'cut') tdee -= 450;
+            if (calcGoal === 'bulk') tdee += 350;
+
+            const calories = Math.max(1200, Math.round(tdee));
+            const protein = Math.round(weight * (calcGoal === 'cut' ? 2.2 : 2.0));
+            const fats = Math.round((calories * 0.25) / 9);
+            const carbs = Math.max(50, Math.round((calories - (protein * 4 + fats * 9)) / 4));
+            const water = (weight * 0.035).toFixed(1);
+            const bmi = (weight / Math.pow(height / 100, 2)).toFixed(1);
+
+            document.getElementById('resCalories').textContent = calories.toLocaleString('en-US');
+            document.getElementById('resProtein').textContent = `${protein} جم`;
+            document.getElementById('resCarbs').textContent = `${carbs} جم`;
+            document.getElementById('resFats').textContent = `${fats} جم`;
+            document.getElementById('resWater').textContent = `${water} لتر`;
+            document.getElementById('resBmi').textContent = bmi;
+
+            const gauge = document.getElementById('calorieGaugeCircle');
+            if (gauge) {
+                const ratio = Math.min(1, Math.max(0.2, calories / 3800));
+                const circumference = 326.7;
+                gauge.style.strokeDashoffset = circumference * (1 - ratio);
+            }
+        }
+
+        // 7. QR CODE MODAL & PHONE COPY HELPERS
+        let qrInstance = null;
+
+        function openQrModal() {
+            const modal = document.getElementById('qrModal');
+            const input = document.getElementById('qrUrlInput');
+            if (!input.value) {
+                input.value = window.location.href;
+            }
+            modal.classList.remove('hidden');
+            regenerateQrCode();
+        }
+
+        function closeQrModal(event) {
+            if (!event || event.target.id === 'qrModal') {
+                document.getElementById('qrModal').classList.add('hidden');
+            }
+        }
+
+        function regenerateQrCode() {
+            const box = document.getElementById('qrCodeCanvasBox');
+            const url = document.getElementById('qrUrlInput').value.trim() || window.location.href;
+            if (!box) return;
+            box.innerHTML = '';
+            if (typeof QRCode !== 'undefined') {
+                qrInstance = new QRCode(box, {
+                    text: url,
+                    width: 168,
+                    height: 168,
+                    colorDark: "#09090b",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+        }
+
+        function copyManagementPhone(btn) {
+            const phone = "01019257887";
+            const tempInput = document.createElement('input');
+            tempInput.value = phone;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            if (btn) {
+                const orig = btn.textContent;
+                btn.textContent = "تم النسخ ✓";
+                setTimeout(() => { btn.textContent = orig; }, 2000);
+            }
+        }
+
+        // INITIALIZE ALL SECTIONS ON LOAD
+        window.addEventListener('DOMContentLoaded', () => {
+            updateLiveShiftStatus();
+            loadSavedCustomPhotos();
+            renderGallery('all');
+            renderMemberships();
+            renderTrainers();
+            calculateMacros();
+            setupGalleryDropzone();
+        });
+    </script>
+</body>
+</html>
