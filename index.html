@@ -762,4 +762,127 @@
     </div>
 
     <footer>
-        <p>جميع الحقوق محفوظة © 2026 - <b>GYM FITNESS CLUB</b> (مقابل بنك الإسكندرية -
+        <p>جميع الحقوق محفوظة © 2026 - <b>GYM FITNESS CLUB</b> (مقابل بنك الإسكندرية - خلف مدرسة الحامول الجديدة)</p>
+        <a href="tel:01019257887" class="phone-highlight"><i class="fa-solid fa-phone"></i> 01019257887</a>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="modal" id="lightboxModal" onclick="if(event.target === this) closeLightbox()">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeLightbox()">&times;</button>
+            <img id="lightboxImg" src="" alt="">
+            <div class="lightbox-caption">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div class="modal" id="qrModal" onclick="if(event.target === this) closeQrModal()">
+        <div class="modal-content" style="max-width: 400px;">
+            <button class="modal-close" onclick="closeQrModal()">&times;</button>
+            <div class="qr-modal-body">
+                <h3 style="color: var(--primary); font-size: 20px;">QR Code موقع GYM FITNESS CLUB</h3>
+                <p style="color: var(--text-gray); font-size: 13px; margin-top: 6px;">امسح الكود بكاميرا الموبايل لفتح صفحة الجيم مباشرة</p>
+                <img id="qrImage" src="" alt="QR Code">
+                <p id="qrUrlText" style="font-size: 12px; color: var(--primary); word-break: break-all;"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const galleryItems = [
+            { id: 1, category: "cardio", catLabel: "قسم الكارديو والمشايات", title: "قسم المشايات الكهربائية وأجهزة الأوربتراك", desc: "مشايات كهربائية احترافية وأجهزة أوربتراك حديثة أمام واجهة زجاجية بإضاءة LED ذهبية وسقف مخفي.", img: "WhatsApp Image 2026-11-18 at 22.45.18 (1).jpeg" },
+            { id: 2, category: "cardio", catLabel: "قسم الكارديو والمشايات", title: "الممر الرئيسي وصالة الكارديو الحديثة", desc: "تصميم عصري بإضاءة سقف هندسية متعرجة مع رؤية كاملة لشعار GYM FITNESS CLUB في خلفية الصالة.", img: "WhatsApp Image 2026-11-18 at 22.45.18 (2).jpeg" },
+            { id: 3, category: "weights", catLabel: "صالة الحديد والأوزان", title: "صالة أجهزة المقاومة والقطنية والدفع", desc: "تشكيلة متكاملة من أجهزة التقوية والقطنية وأجهزة الدفع والسحب موزعة باحترافية مع إضاءة أعمدة ذهبية دافئة.", img: "WhatsApp Image 2026-11-18 at 22.45.18 (3).jpeg" },
+            { id: 4, category: "weights", catLabel: "صالة الحديد والأوزان", title: "أجهزة الكابل كروس والسحب العالي", desc: "محطات سحب متعددة الزوايا لتمرين جميع عضلات الجسم بأعلى كفاءة وأوزان احترافية.", img: "WhatsApp Image 2026-11-18 at 22.45.18.jpeg" },
+            { id: 5, category: "supplements", catLabel: "ركن المكملات", title: "ركن المكملات الغذائية والإكسسوارات", desc: "بار المكملات والإكسسوارات الرياضية الكامل: البروتينات والكرياتين ومنتجات الطاقة تحت إدارة ك/ إبراهيم محي.", img: "WhatsApp Image 2026-11-18 at 22.45.19 (1).jpeg" },
+            { id: 6, category: "weights", catLabel: "صالة الحديد والأوزان", title: "ستاند الدمبلز والأوزان الحرة والمرايا", desc: "منطقة الأوزان الحرة المزودة بمرايا ضخمة وإضاءة محيطية مع تشكيلة دمبلز متدرجة بالكامل.", img: "WhatsApp Image 2026-11-18 at 22.45.19 (2).jpeg" },
+            { id: 7, category: "weights", catLabel: "صالة الحديد والأوزان", title: "زاوية أجهزة العزل والأحمال الحرة", desc: "أجهزة مخصصة لعزل عضلات الأرجل والأكتاف لضمان أداء تمريني مثالي وآمن.", img: "WhatsApp Image 2026-11-18 at 22.45.19 (3).jpeg" },
+            { id: 8, category: "weights", catLabel: "صالة الحديد والأوزان", title: "جهاز دفع الرجل والسميث", desc: "ركن القوة تحت شعار Discipline Never Takes A Day Off لتمرين الأرجل والسميث ماشين بأقصى الأوزان.", img: "WhatsApp Image 2026-11-18 at 22.45.20 (1).jpeg" },
+            { id: 9, category: "weights", catLabel: "صالة الحديد والأوزان", title: "زاوية البنشات الحرة ومقاعد التمارين", desc: "بنشات مستوية ومائلة ومزودة بحوامل أوزان حرة لتمرين الصدر والكتف بأريحية تامة.", img: "WhatsApp Image 2026-11-18 at 22.45.20.jpeg" }
+        ];
+
+        function renderGallery(filter = 'all') {
+            const grid = document.getElementById('realGalleryGrid');
+            grid.innerHTML = '';
+            const items = filter === 'all' ? galleryItems : galleryItems.filter(i => i.category === filter);
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'gallery-card';
+                card.onclick = () => openLightbox(item);
+                card.innerHTML = `
+                    <div class="gallery-img-wrap">
+                        <img src="${item.img}" alt="${item.title}" loading="lazy">
+                        <span class="img-num">#${item.id}</span>
+                        <span class="img-cat">${item.catLabel}</span>
+                    </div>
+                    <div class="gallery-content">
+                        <h3>${item.title}</h3>
+                        <p>${item.desc}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterGallery(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderGallery(cat);
+        }
+
+        function openLightbox(item) {
+            document.getElementById('lightboxImg').src = item.img;
+            document.getElementById('lightboxTitle').innerText = item.title;
+            document.getElementById('lightboxDesc').innerText = item.desc;
+            document.getElementById('lightboxModal').classList.add('open');
+        }
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.remove('open');
+        }
+
+        function openQrModal() {
+            const siteUrl = window.location.href.split('#')[0];
+            document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(siteUrl)}`;
+            document.getElementById('qrUrlText').innerText = siteUrl;
+            document.getElementById('qrModal').classList.add('open');
+        }
+        function closeQrModal() {
+            document.getElementById('qrModal').classList.remove('open');
+        }
+
+        function calculateMacros() {
+            const gender = document.getElementById('calcGender').value;
+            const age = parseFloat(document.getElementById('calcAge').value);
+            const weight = parseFloat(document.getElementById('calcWeight').value);
+            const height = parseFloat(document.getElementById('calcHeight').value);
+            const goal = document.getElementById('calcGoal').value;
+
+            if (!age || !weight || !height) return;
+
+            let bmr = (10 * weight) + (6.25 * height) - (5 * age);
+            bmr += (gender === 'male') ? 5 : -161;
+
+            let tdee = bmr * 1.375;
+            if (goal === 'cut') tdee -= 500;
+            if (goal === 'bulk') tdee += 400;
+
+            tdee = Math.round(tdee);
+            const protein = Math.round(weight * 2);
+            const fats = Math.round((tdee * 0.25) / 9);
+            const carbs = Math.max(0, Math.round((tdee - (protein * 4) - (fats * 9)) / 4));
+
+            document.getElementById('resCalories').innerText = `${tdee} سعرة حرارية / يومياً`;
+            document.getElementById('resProtein').innerText = `${protein} جم`;
+            document.getElementById('resCarbs').innerText = `${carbs} جم`;
+            document.getElementById('resFats').innerText = `${fats} جم`;
+            document.getElementById('calcResult').style.display = 'block';
+        }
+
+        renderGallery('all');
+    </script>
+</body>
+</html>
