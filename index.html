@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GYM FITNESS CLUB | </title>
+    <title>GYM FITNESS CLUB | البورتفوليو الرسمي</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -34,22 +34,6 @@
             background-image: radial-gradient(circle at 20% 20%, rgba(250, 204, 21, 0.12) 0%, transparent 45%),
                               radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.09) 0%, transparent 45%);
         }
-        @media print {
-            body * { visibility: hidden; }
-            #qrPrintCard, #qrPrintCard * { visibility: visible; }
-            #qrPrintCard {
-                position: fixed;
-                inset: 0;
-                margin: auto;
-                width: 380px;
-                height: fit-content;
-                background: #09090b !important;
-                color: #fff !important;
-                border: 3px solid #facc15 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
     </style>
 </head>
 <body class="zigzag-bg min-h-screen pb-20 md:pb-0">
@@ -78,11 +62,11 @@
                 <a href="#calories" class="px-4 py-2 rounded-xl text-sm font-extrabold text-slate-200 hover:text-zinc-950 hover:bg-yellow-400 transition">حاسبة السعرات</a>
             </nav>
 
-            <!-- QR Preview Modal Trigger -->
+            <!-- Share Modal Trigger -->
             <div class="flex items-center gap-2">
                 <button type="button" onclick="openQrModal()" class="px-3.5 sm:px-4 py-2.5 rounded-2xl bg-yellow-400 hover:bg-yellow-300 text-zinc-950 text-xs sm:text-sm font-black shadow-lg shadow-yellow-400/20 transition flex items-center gap-2">
-                    <i class="fa-solid fa-qrcode text-base"></i>
-                    <span>معاينة QR Code</span>
+                    <i class="fa-solid fa-share-nodes text-base"></i>
+                    <span>مشاركة الموقع</span>
                 </button>
             </div>
         </div>
@@ -566,17 +550,17 @@
         </div>
     </div>
 
-    <!-- ==================== QR CODE STAND PREVIEW MODAL ==================== -->
+    <!-- ==================== SHARE WEBSITE MODAL ==================== -->
     <div id="qrModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4" onclick="closeQrModal(event)">
         <div class="max-w-md w-full bg-zinc-900 rounded-3xl p-6 border border-yellow-400/40 shadow-2xl space-y-5 text-center" onclick="event.stopPropagation()">
             <div class="flex items-center justify-between">
-                <h3 class="text-lg font-black text-white">ستاند QR Code الريسبشن</h3>
+                <h3 class="text-lg font-black text-white">مشاركة موقع الجيم</h3>
                 <button type="button" onclick="closeQrModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-yellow-400 text-white hover:text-zinc-950 flex items-center justify-center transition">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <!-- Printable Reception Stand Card -->
+            <!-- Shareable QR Card -->
             <div id="qrPrintCard" class="p-6 rounded-3xl bg-zinc-950 border-2 border-yellow-400 space-y-4">
                 <div class="space-y-1">
                     <span class="text-xs font-extrabold text-yellow-400 block">امسح الكود بكاميرا الموبايل</span>
@@ -599,15 +583,17 @@
                 </div>
             </div>
 
-            <div class="space-y-2 text-right">
-                <label class="text-xs font-bold text-slate-300 block">رابط الصفحة المربوط بالكود (يتحدث تلقائياً بعد الرفع):</label>
-                <input type="text" id="qrUrlInput" oninput="regenerateQrCode()" class="w-full p-2.5 rounded-xl bg-zinc-950 border border-white/15 text-xs text-yellow-300 font-mono text-left" dir="ltr">
+            <!-- Visitor Share Actions -->
+            <div class="grid grid-cols-2 gap-2.5">
+                <button type="button" onclick="copySiteLink(this)" class="py-3 px-4 rounded-2xl bg-yellow-400 hover:bg-yellow-300 text-zinc-950 text-xs sm:text-sm font-black transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-link"></i>
+                    <span>نسخ الرابط</span>
+                </button>
+                <button type="button" onclick="shareSiteLink()" class="py-3 px-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs sm:text-sm font-black transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    <span>مشاركة الرابط</span>
+                </button>
             </div>
-
-            <button type="button" onclick="window.print()" class="w-full py-3 rounded-2xl bg-yellow-400 hover:bg-yellow-300 text-zinc-950 text-sm font-black transition flex items-center justify-center gap-2">
-                <i class="fa-solid fa-print"></i>
-                <span>طباعة كارت الـ QR Code للريسبشن</span>
-            </button>
         </div>
     </div>
 
@@ -1300,15 +1286,11 @@
             }
         }
 
-        // 7. QR CODE MODAL & PHONE COPY HELPERS
+        // 7. SHARE MODAL & COPY HELPERS
         let qrInstance = null;
 
         function openQrModal() {
             const modal = document.getElementById('qrModal');
-            const input = document.getElementById('qrUrlInput');
-            if (!input.value) {
-                input.value = window.location.href;
-            }
             modal.classList.remove('hidden');
             regenerateQrCode();
         }
@@ -1321,7 +1303,7 @@
 
         function regenerateQrCode() {
             const box = document.getElementById('qrCodeCanvasBox');
-            const url = document.getElementById('qrUrlInput').value.trim() || window.location.href;
+            const url = window.location.href.split('#')[0];
             if (!box) return;
             box.innerHTML = '';
             if (typeof QRCode !== 'undefined') {
@@ -1336,14 +1318,49 @@
             }
         }
 
-        function copyManagementPhone(btn) {
-            const phone = "01019257887";
+        function fallbackCopyText(text) {
             const tempInput = document.createElement('input');
-            tempInput.value = phone;
+            tempInput.value = text;
             document.body.appendChild(tempInput);
             tempInput.select();
             document.execCommand('copy');
             document.body.removeChild(tempInput);
+        }
+
+        function copySiteLink(btn) {
+            const url = window.location.href.split('#')[0];
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).catch(() => fallbackCopyText(url));
+            } else {
+                fallbackCopyText(url);
+            }
+            if (btn) {
+                const span = btn.querySelector('span');
+                if (span) {
+                    const orig = span.textContent;
+                    span.textContent = "تم نسخ الرابط ✓";
+                    setTimeout(() => { span.textContent = orig; }, 2000);
+                }
+            }
+        }
+
+        function shareSiteLink() {
+            const url = window.location.href.split('#')[0];
+            const text = "موقع GYM FITNESS CLUB الرسمي - الصور والمواعيد والاشتراكات:";
+            if (navigator.share) {
+                navigator.share({
+                    title: "GYM FITNESS CLUB",
+                    text: text,
+                    url: url
+                }).catch(() => {});
+            } else {
+                window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + url)}`, '_blank', 'noopener,noreferrer');
+            }
+        }
+
+        function copyManagementPhone(btn) {
+            const phone = "01019257887";
+            fallbackCopyText(phone);
 
             if (btn) {
                 const orig = btn.textContent;
