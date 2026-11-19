@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GYM FITNESS CLUB </title>
+    <title>GYM FITNESS CLUB | البورتفوليو الرسمي</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -911,7 +911,7 @@
                 badge: "مدرب معتمد (PT)",
                 specialty: "مدرب شخصي معتمد (PT) وأخصائي تغذية رياضية",
                 bio: "متابعة فردية دقيقة داخل الصالة لتطوير القوة البدنية، حرق الدهون، وبناء العضلات مع تصحيح الأداء الحركي على جميع الأجهزة.",
-                image: "captain-islam.jpeg",
+                image: "WhatsApp Image 2026-11-18 at 22.55.47.jpeg",
                 tags: ["تدريب شخصي PT", "بناء عضلي وحرق دهون", "متابعة غذائية"],
                 includedBullets: [
                     "برنامج تدريبي مخصص لهدفك البدني داخل الصالة",
@@ -928,7 +928,7 @@
         window.generateTrainerFallbackUri = function(trainerId) {
             const isIbrahim = trainerId === 'pt_ibrahim';
             const name = isIbrahim ? 'كابتن / إبراهيم محي' : 'كابتن / إسلام محي';
-            const fileHint = isIbrahim ? 'WhatsApp Image 2026-11-18 at 23.01.18.jpeg' : 'captain-islam.jpeg';
+            const fileHint = isIbrahim ? 'WhatsApp Image 2026-11-18 at 23.01.18.jpeg' : 'WhatsApp Image 2026-11-18 at 22.55.47.jpeg';
             const badge = isIbrahim ? 'IFBB CHAMPION • 2,000 / 4,000 EGP' : 'CERTIFIED PT • 1,500 / 2,500 EGP';
             const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560">
                 <defs>
@@ -970,15 +970,6 @@
                                 <span class="px-3 py-1 rounded-xl bg-yellow-400 text-zinc-950 text-xs font-black shadow">
                                     <i class="fa-solid fa-trophy ml-1"></i>${trainer.badge}
                                 </span>
-                            </div>
-
-                            <!-- Individual Trainer Photo Upload & Embed Button -->
-                            <div class="trainer-upload-overlay absolute top-3 left-3">
-                                <input type="file" id="trainerPhotoInput_${trainer.id}" accept="image/*" class="hidden" onchange="handleSingleTrainerPhotoUpload(event, '${trainer.id}')">
-                                <button type="button" onclick="document.getElementById('trainerPhotoInput_${trainer.id}').click()" class="px-3 py-1.5 rounded-xl bg-zinc-950/90 hover:bg-yellow-400 text-yellow-400 hover:text-zinc-950 border border-yellow-400/40 text-[11px] font-extrabold backdrop-blur-md transition flex items-center gap-1.5 shadow-lg">
-                                    <i class="fa-solid fa-camera"></i>
-                                    <span>تثبيت صورة الكابتن</span>
-                                </button>
                             </div>
 
                             <div class="absolute bottom-4 inset-x-5">
