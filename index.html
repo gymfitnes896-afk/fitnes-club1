@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GYM FITNESS CLUB </title>
+    <title>GYM FITNESS CLUB</title>
+
+    <!-- ========================================================== -->
+    <!-- مفتاح وضع الصيانة: غيّر false إلى true لتشغيل صفحة الصيانة -->
+    <!-- ========================================================== -->
+    <script>
+        const MAINTENANCE_MODE = false;
+        if (MAINTENANCE_MODE) {
+            document.documentElement.classList.add('maintenance-active');
+            document.title = '🛠️ Our website is currently under maintenance.
+                Please contact the admin for any inquiries 
+                Thank you for your patience. 🙏';
+        }
+    </script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -34,9 +48,73 @@
             background-image: radial-gradient(circle at 20% 20%, rgba(250, 204, 21, 0.12) 0%, transparent 45%),
                               radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.09) 0%, transparent 45%);
         }
+        #maintenanceOverlay {
+            display: none;
+        }
+        html.maintenance-active body {
+            padding-bottom: 0 !important;
+        }
+        html.maintenance-active body > *:not(#maintenanceOverlay) {
+            display: none !important;
+        }
+        html.maintenance-active #maintenanceOverlay {
+            display: flex !important;
+        }
     </style>
 </head>
 <body class="zigzag-bg min-h-screen pb-20 md:pb-0">
+
+    <!-- ==================== MAINTENANCE MODE OVERLAY ==================== -->
+    <div id="maintenanceOverlay" class="min-h-screen w-full items-center justify-center p-4">
+        <div class="max-w-lg w-full bg-zinc-900/90 border-2 border-yellow-400/40 rounded-3xl p-8 text-center space-y-6 shadow-2xl gold-glow">
+            <div class="w-20 h-20 mx-auto rounded-3xl bg-yellow-400/15 border border-yellow-400/40 flex items-center justify-center text-yellow-400">
+                <i class="fa-solid fa-screwdriver-wrench text-3xl animate-pulse"></i>
+            </div>
+
+            <div class="space-y-2">
+                <h1 class="text-2xl sm:text-3xl font-black text-white" dir="ltr">
+                    GYM <span class="text-yellow-400">FITNESS CLUB</span>
+                </h1>
+                <h2 class="text-xl sm:text-2xl font-black text-yellow-400">الموقع تحت الصيانة والتحديث</h2>
+                <p class="text-sm text-slate-300 leading-relaxed pt-1">
+                    نعمل حالياً على تحديث الصفحة وإضافة عروض ومحتوى جديد، وسنعود للعمل خلال وقت قصير.
+                </p>
+            </div>
+
+            <div class="bg-zinc-950/90 border border-white/10 rounded-2xl p-4 space-y-3">
+                <p class="text-xs font-bold text-slate-400">للاستفسار أو الاشتراك خلال فترة الصيانة، تواصل مع الإدارة مباشرة:</p>
+                <div class="flex items-center justify-center gap-2.5">
+                    <a href="tel:01019257887" class="flex-1 py-2.5 px-4 rounded-xl bg-yellow-400 hover:bg-yellow-300 text-zinc-950 text-xs sm:text-sm font-black transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>اتصال مباشر</span>
+                    </a>
+                    <a href="https://wa.me/201019257887" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs sm:text-sm font-black transition flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>واتساب الإدارة</span>
+                    </a>
+                </div>
+                <div class="flex items-center justify-center gap-2 pt-2.5 border-t border-white/10">
+                    <a href="https://www.facebook.com/share/1EDaeB94BW/" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 px-2 rounded-xl bg-blue-600/20 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/35 text-xs font-black transition flex items-center justify-center gap-1.5">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <span>فيسبوك</span>
+                    </a>
+                    <a href="https://www.instagram.com/hemamohie?lqvp=MXF3bXZyOTQ4Nzd3ag==" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 px-2 rounded-xl bg-pink-600/20 hover:bg-pink-600 text-pink-300 hover:text-white border border-pink-500/35 text-xs font-black transition flex items-center justify-center gap-1.5">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span>إنستجرام</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@ebrahimmohie?_r=1&_t=ZS-9BWPrWENaEv" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 px-2 rounded-xl bg-white/10 hover:bg-white text-white hover:text-zinc-950 border border-white/20 text-xs font-black transition flex items-center justify-center gap-1.5">
+                        <i class="fa-brands fa-tiktok"></i>
+                        <span>تيك توك</span>
+                    </a>
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-400 font-semibold">
+                <i class="fa-solid fa-location-dot text-yellow-400 ml-1"></i>
+                مقابل بنك الإسكندرية - خلف مدرسة الحامول الجديدة
+            </p>
+        </div>
+    </div>
 
     <!-- ==================== 1. STICKY RTL NAVBAR ==================== -->
     <header class="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur-xl border-b border-yellow-400/20">
