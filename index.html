@@ -6,13 +6,13 @@
     <title>GYM FITNESS CLUB</title>
 
     <!-- ========================================================== -->
-    <!-- مفتاح وضع الصيانة: غيّر false إلى true لتشغيل صفحة الصيانة -->
+    <!-- مفتاح وضع الصيانة: غيّر true إلى false لإرجاع الموقع للعمل -->
     <!-- ========================================================== -->
     <script>
         const MAINTENANCE_MODE = true;
         if (MAINTENANCE_MODE) {
             document.documentElement.classList.add('maintenance-active');
-            document.title = '🛠️ Our website is currently under maintenance.Please contact the admin for any inquiries  Thank you for your patience. 🙏';
+            document.title = 'GYM FITNESS CLUB | Under Maintenance';
         }
     </script>
 
@@ -69,13 +69,16 @@
                 <i class="fa-solid fa-screwdriver-wrench text-3xl animate-pulse"></i>
             </div>
 
-            <div class="space-y-2">
+            <div class="space-y-2.5">
                 <h1 class="text-2xl sm:text-3xl font-black text-white" dir="ltr">
                     GYM <span class="text-yellow-400">FITNESS CLUB</span>
                 </h1>
-                <h2 class="text-xl sm:text-2xl font-black text-yellow-400">الموقع تحت الصيانة والتحديث</h2>
-                <p class="text-sm text-slate-300 leading-relaxed pt-1">
-                    نعمل حالياً على تحديث الصفحة وإضافة عروض ومحتوى جديد، وسنعود للعمل خلال وقت قصير.
+                <h2 class="text-lg sm:text-xl font-black text-yellow-400 leading-snug" dir="ltr">
+                    🛠️ Our website is currently under maintenance.
+                </h2>
+                <p class="text-sm text-slate-300 leading-relaxed pt-1" dir="ltr">
+                    Please contact the admin for any inquiries.<br>
+                    Thank you for your patience. 🙏
                 </p>
             </div>
 
